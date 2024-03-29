@@ -1,0 +1,107 @@
+
+.product_card {
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    width: 280px;
+    /* height: 380px; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    font-family: "Open Sans", sans-serif;
+    box-shadow: 1px 1px 1px 0px gray;
+  }
+  
+  .product_card img {
+    width: 40%;
+    margin: 0 30%;
+    height:180px;
+    border-radius: 5px;
+
+  }
+  
+  .product_card h2 {
+    font-size: 16px;
+    margin-top: 10px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    text-align: center;
+  }
+  
+  
+  .product_card h4 {
+    font-size: 19px;
+    margin-top: 8px;
+    color: brown;
+    margin-bottom: 0;
+  }
+  .product_card .button_container{
+    /* margin-top:5px; */
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .product_card button {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    background-color:teal;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product_card button:hover {
+    background-color:rgb(79, 122, 122);
+  }
+  .product_card .details{
+    background-color: grey;
+    color: antiquewhite;
+  }
+  .product_card a{
+    text-decoration: underline;
+    font-size: 17px;
+    color: gray;
+    font-weight: 600;
+  }
+  .product_card p{
+    margin-top:4px;
+  }
+  
+  .product_card .addTocart{
+    font-size: 18px;
+    margin-right: 5px;
+    align-items: center;
+  }
+  .product_card span{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .wishlist>p{
+    visibility: hidden;
+    background-color: rgb(193, 171, 144);
+    color: rgb(90, 83, 83);
+    padding: 2px;
+    position: absolute;
+    z-index: 1;
+  }
+  .wishlist_icon:hover{
+    content: counter(Add to wishlist);
+  }
+  .product_card .wishlist_icon{
+    color: rgb(200, 24, 83);
+    font-size: 20px;
+    cursor:pointer;
+    
+    
+    
+  }
+  
