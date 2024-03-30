@@ -5,11 +5,12 @@
     flex-direction: row;
     /* justify-content:center; */
     /* border: 1px solid; */
-    margin: 40px auto;
+    margin: 40px auto ;
     width:55%;
     height: 480px;
     box-shadow: 1px 1px 3px 1px rgb(222, 217, 217);
     font-family: "Open Sans", sans-serif;
+
 
 
     

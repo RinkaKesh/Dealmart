@@ -6,6 +6,7 @@ import { SignIn } from './pages/SignIn/SignIn'
 import SignUp from './pages/SignUp/SignUp'
 import {Routes,Route} from "react-router-dom"
 import ProductDetail from './pages/ProductDetail/ProductDetail'
+import Footer from './pages/Footer/Footer'
 
 
 
@@ -21,9 +22,8 @@ function App() {
       <Route path='/register' element={<SignUp/>}/>
       <Route path='/product' element={<Product/>}/>
       <Route path="/product/:productId" element={<ProductDetail/>}  />
-    
       </Routes>
-       
+       {/* <Footer/> */}
     </>
   )
 }

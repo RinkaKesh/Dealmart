@@ -1,0 +1,10 @@
+.homepage_footer{
+    width: 100%;
+    height:auto ;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+    z-index: 1000;
+}

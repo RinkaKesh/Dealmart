@@ -3,6 +3,7 @@ import style from "./ProductCard.module.css"
 import { Link, useNavigate } from 'react-router-dom'
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import { MdAddShoppingCart } from "react-icons/md";
+import { LuIndianRupee } from "react-icons/lu";
 
 
 const ProductCard = ({ product }) => {
@@ -15,7 +16,7 @@ const ProductCard = ({ product }) => {
       <h2>{title}</h2>
       {/* <button className={style.details}>View Details</button> */} 
       <Link  to={`/product/${id}`} >View Details</Link>
-      <h4>Price: INR  {Math.floor(price*85)}</h4>
+      <h4> Price:<LuIndianRupee/> {Math.floor(price*85)}</h4>
       <p>{rating.rate}/5</p>
       <div className={style.button_container}>
       <button> <MdAddShoppingCart className={style.addTocart}/>Add to Cart</button>
