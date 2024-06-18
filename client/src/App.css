@@ -1,1 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+body {
+   margin: 0px;
+   padding: 0px;
+   height: 100%;
+}
+html, #root {
+   height: 100%;
+}
+.App {
+   width: 90%;
+   margin: 0px auto;
+   height: 100%;
+   overflow: hidden;
+}
