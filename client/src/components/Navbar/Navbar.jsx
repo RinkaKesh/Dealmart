@@ -13,9 +13,9 @@ const Navbar = () => {
             <ul className={style.Navbar}>
                 <li><img src={logo} alt="logo" className={style.logo} /></li>
                 <li className={style.search_container}><IoSearchOutline className={style.search_icon} /><input type="text" className={style.search_input} placeholder='Search Products...' maxLength={15} /></li>
-               <Link to="/login"> <li className={style.user_container}><IoPersonSharp/>Login</li></Link>
-                <Link to="/cart"><li className={style.cart_container}><BsCart4/>Cart</li></Link>
-                <Link><li className={style.seller_container}><PiGiftBold/>Become a Seller</li></Link>
+                <li className={style.user_container}><Link to="/login"><IoPersonSharp/>Login</Link></li>
+                <li className={style.cart_container}><Link to="/cart"><BsCart4/>Cart</Link></li>
+                <li className={style.seller_container}><Link><PiGiftBold/>Become a Seller</Link></li>
             </ul>
         </div>
     )

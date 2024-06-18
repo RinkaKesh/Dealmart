@@ -5,6 +5,7 @@ import Slider from '../../components/Slider/Slider'
 import Banner from '../../components/Banner/Banner'
 import Footer from '../Footer/Footer'
 import style from "./Home.module.css"
+import Deal from '../../components/Deal/Deal'
 
 const Home = () => {
   return (
