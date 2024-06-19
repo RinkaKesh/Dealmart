@@ -22,19 +22,22 @@ const responsive = {
 const DealWrapper = styled(Box)`
     margin: 30px 40px;
     background: white;
-    padding: 0 10px;
+    padding: 10px 10px ;
+    position: relative; 
+    z-index: 1; 
     @media (max-width: 768px) {
         margin: 20px 10px;
     }
 `;
 
 const DealTextWrapper = styled(Box)`
-    padding: 15px 9px;
+     padding: 12px 9px;
 `;
 
 const DealText = styled(Typography)`
     font-size: 22px;
     font-weight: 600;
+    color:gray;
     align-items: flex-start;
     @media (max-width: 768px) {
         font-size: 18px;
@@ -45,8 +48,8 @@ const Image = styled('img')`
     width: 100%;
     height: auto;
     max-width: 150px;
-    max-height: 220px;
-    padding: 10px;
+    max-height: 210px;
+    padding: 10px 10px 0px 10px;
     transition: transform 0.3s ease-in-out;
 
     &:hover {
@@ -55,7 +58,7 @@ const Image = styled('img')`
 `;
 
 const CardBox = styled(Box)`
-    padding: 4px 10px;
+     padding: 4px 10px;
     border: 1px solid gray;
     height: 280px;
     margin: 0 25px;
@@ -64,6 +67,8 @@ const CardBox = styled(Box)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative; 
+    z-index: 1; 
     @media (max-width: 768px) {
         height: 250px;
         margin: 0 10px;
@@ -73,8 +78,20 @@ const CardBox = styled(Box)`
 const CardTitle = styled(Typography)`
     margin-top: 10px;
     font-size: 16px;
+    color:gray;
+    text-transform:uppercase;
     @media (max-width: 768px) {
         font-size: 14px;
+    }
+`;
+
+const CustomCarousel = styled(Carousel)`
+    .react-multi-carousel-dot-list {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0; /* Ensure buttons z-index is 0 */
     }
 `;
 
@@ -84,7 +101,7 @@ const Deal = ({ data, dealtext }) => {
             <DealTextWrapper>
                 <DealText>{dealtext}</DealText>
             </DealTextWrapper>
-            <Carousel
+            <CustomCarousel
                 responsive={responsive}
                 autoPlay={true}
                 swipeable={true}
@@ -99,7 +116,7 @@ const Deal = ({ data, dealtext }) => {
                         <CardTitle>{data.title}</CardTitle>
                     </CardBox>
                 ))}
-            </Carousel>
+            </CustomCarousel>
         </DealWrapper>
     );
 };

@@ -6,6 +6,7 @@ import Banner from '../../components/Banner/Banner'
 import Footer from '../Footer/Footer'
 import style from "./Home.module.css"
 import Deal from '../../components/Deal/Deal'
+import FooterTop from '../../components/FooterTop/FooterTop'
 
 const Home = () => {
   return (
@@ -14,7 +15,8 @@ const Home = () => {
         <Menubar/>
         <Banner/>
         <Slider/>
-        <Footer className={style.homepage_footer}/>
+        <FooterTop/>
+        {/* <Footer className={style.homepage_footer}/> */}
     </div>
   )
 }

@@ -5,6 +5,14 @@ const FooterTop = () => {
     return (
         <div className={style.footertop_container}>
             <div className={style.footertop_left_container}>
+            <div>
+                    <h5>CONSUMER POLICY</h5>
+                    <a href='#'>Cancellation & Returns</a>
+                    <a href='#'>Terms Of Use</a>
+                    <a href='#'>Security</a>
+                    <a href='#'>Privacy</a>
+                    <a href='#'>Sitemap</a>
+                </div>
                 <div>
                     <h5>ABOUT</h5>
                     <a href='#'>Contact Us</a>
@@ -14,6 +22,7 @@ const FooterTop = () => {
                     <a href='#'>Press</a>
                     <a href='#'>Corporate Information</a>
                 </div>
+                
                 <div>
                     <h5>HELP</h5>
                     <a href='#'>Payments</a>
@@ -22,14 +31,7 @@ const FooterTop = () => {
                     <a href='#'>FAQ</a>
                     <a href='#'>Report Infringement</a>
                 </div>
-                <div>
-                    <h5>CONSUMER POLICY</h5>
-                    <a href='#'>Cancellation & Returns</a>
-                    <a href='#'>Terms Of Use</a>
-                    <a href='#'>Security</a>
-                    <a href='#'>Privacy</a>
-                    <a href='#'>Sitemap</a>
-                </div>
+                
             </div>
 
             <div className={style.footertop_right_container}>
