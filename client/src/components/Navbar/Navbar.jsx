@@ -14,7 +14,7 @@ const Navbar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.navbarLeft}>
-                <img src="public/dealmart.png" alt="logo" className={styles.logo} />
+                <img src={logo} alt="logo" className={styles.logo} />
                 <div className={styles.search_container}>
                     <IoSearchOutline className={styles.search_icon} />
                     <input type="text" className={styles.search_input} placeholder="Search..." />

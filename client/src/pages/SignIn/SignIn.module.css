@@ -1,149 +1,149 @@
 .signin_container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left, .right {
+  flex: 1;
+  padding: 20px;
+}
+.left ul{
+  font-size: 20px;
+  font-weight: 600;
+}
+.left li{
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_text {
+  margin-bottom: 20px;
+  color: rgb(14,138,138);
+}
+
+.login_text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login_text li {
+  margin-top: 10px;
+}
+
+.left img {
+  max-width: 100%;
+  height: auto;
+}
+
+.right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.right label {
+  margin-bottom: 5px;
+  color:teal
+}
+
+.right input {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.right p {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  color: grey;
+}
+
+.right button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.right button:hover {
+  background-color: rgb(14,138,138);
+}
+
+.new_account {
+  display: block;
+  margin-top: 18px;
+  text-align: center;
+  color: rgb(14,138,138);
+  text-decoration: none;
+  font-size: 14px;
+}
+.new_account:hover{
+  color: teal;
+}
+
+.new_account:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .signin_container {
+    flex-direction: column;
+  }
+  .left img{
     
-  }
-  
-   .left,.right {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .login_text {
-    margin-bottom: 20px;
-  }
-  
-  .login_text ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 30px;
-    color: rgb(14,138,138);
-  }
-  
-  .login_text li {
-    margin-top: 10px;
-    font-size: 18px;
-  }
-  
-  .left img {
     max-width: 100%;
-    /* height: auto; */
-    max-height: 500px;
-  }
+    height: 200px;
   
-  .right form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .right label {
-    margin-bottom: 6px;
-    color: rgb(61, 120, 120);
-    font-size: 1.4rem;
-    font-weight: 400;
-  }
-  
-  .right input {
-    margin-bottom: 15px;
+}
+
+  .left, .right {
+    width: 100%;
     padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    border: none;
-    border-bottom:2px solid rgb(61, 120, 120) ;
-  }
-  input:focus{
-    border: 1px solid rgb(21, 105, 105);
-  }
-  
-  .right p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: gray;
-  }
-  .right a{
-    font-size: 1.2 rem;
   }
 
-  
+  .left {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login_text {
+    font-size: 0.9rem;
+  }
+  .left img{
+    
+      max-width: 100%;
+      height: 200px;
+    
+  }
+
+  .right input {
+    font-size: 0.9rem;
+  }
+
   .right button {
-    padding: 10px;
-    font-size: 1.2rem;
-    background-color: rgb(61, 120, 120);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
+    font-size: 0.9rem;
   }
-  
-  .right button:hover {
-    background-color: rgb(144, 201, 201);
+
+  .right p {
+    font-size: 0.8rem;
   }
-  
-  .new_account {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  .new_account:hover {
-    text-decoration: underline;
-  }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
-    .signin_container {
-      flex-direction: column;
-      margin-top: 100px;
-    }
-  
-    .left, .right {
-      width: 100%;
-      padding: 10px;
-    }
-  
-    .left {
-      margin-bottom: 20px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .signin_container {
-        flex-direction: column;
-        margin-top: 40px;
-      }
-    .login_text {
-      font-size: 0.9rem;
-    }
-  
-    input {
-      font-size: 0.9rem;
-    }
-  
-    button {
-      font-size: 0.9rem;
-    }
-  
-    p {
-      font-size: 0.8rem;
-    }
-  }
-  
+}
