@@ -1,11 +1,11 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IoSearchOutline } from "react-icons/io5";
-import styles from "./Navbar.module.css"
-import logo from "../../../public/dealmart.png"
+import styles from "./Navbar.module.css";
+import logo from "../../../public/dealmart.png";
 import { IoPersonSharp } from "react-icons/io5";
 import { BsCart4 } from "react-icons/bs";
-import { PiGiftBold } from "react-icons/pi"
+import { PiGiftBold } from "react-icons/pi";
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -13,7 +13,13 @@ const Navbar = () => {
 
     return (
         <nav className={styles.navbar}>
-            <img src="public/dealmart.png" alt="logo" />
+            <div className={styles.navbarLeft}>
+                <img src="public/dealmart.png" alt="logo" className={styles.logo} />
+                <div className={styles.search_container}>
+                    <IoSearchOutline className={styles.search_icon} />
+                    <input type="text" className={styles.search_input} placeholder="Search..." />
+                </div>
+            </div>
             <div className={styles.menu}>
                 <div>
                     {menuOpen ? (
@@ -35,6 +41,4 @@ const Navbar = () => {
     );
 };
 
-
-
-export default Navbar
+export default Navbar;

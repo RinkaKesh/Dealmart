@@ -1,219 +1,148 @@
 .navbar {
-    width: 100%;
-    position: fixed;
-    left:0;
-    top:0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /* padding-top: 61px; */
-    z-index: 1000;
-    margin: 0 auto;
-    background-color:rgb(14,138,138); 
-    padding: 4px ;
-    
-    
-  }
-  .navbar img {
-        width: 150px;
-        height: 40px;
-        /* padding: 3px; */
-    }
-  
-  
-  .title {
-    font-size:30px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    /* color: white; */
-    background: url("public/image/title.jpg")no-repeat;
-    background-size: cover;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    
-  }
-  
-  
-  .menuBtn {
-    display: none;
-  }
-  
-  .menu {
-    display: flex;
-  }
-  
-  .menuItems {
-    display: flex;
-    gap: 47px;
-    list-style: none;
-  }
-  .menuItems li a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:5px;
-    color:white;
-  
-  }
-  .menuItems li a:hover{
-    color: grey;
-  }
-  
-  .menuItems a {
-    font-size: 25px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  @media screen and (max-width: 922px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-     padding-left: 3%;
-  
-    
-    }
-  
-    .menu {
-      position: absolute;
-      right: 0;
-      margin-right: 5%;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 13px;
-      z-index: 3;
-    }
-  
-    .menuBtn {
-      display: block;
-      cursor: pointer;
-      font-size:30px;
-      color: white;
-      font-weight: 600;
-  
-    }
-  
-    .menuItems {
-      position:absolute;
-      top:37px;
-      font-size: 22px;
-      right:0;
-      display: none;
-      flex-direction: column;
-      align-items:flex-start;
-      gap: 13px;
-      border-radius: 10px;
-      background: rgb(14,138,138);
-      background: linear-gradient(
-        0deg,
-        rgba(13, 79, 62, 0.2) 0%,
-        rgb(90, 103, 127) 100%
-      );
-      padding: 24px 30px;
-      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-    }
-    .menuItems li a:hover{
-      color:rgb(21, 134, 96) ;
-    }
-    
-  
-    .menuOpen {
-      display: flex;
-      z-index: 1;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-     padding-left: 3%;
-  
-    
-    }
-  
-    .menu {
-      position: absolute;
-      right: 0;
-      margin-right: 5%;
-      flex-direction: column;
-      align-items: flex-end;
-      gap:5px;
-      z-index: 3;
-    }
-  
-    .menuBtn {
-      display: block;
-      cursor: pointer;
-      font-size:27px;
-      color: white;
-      font-weight: 600;
-  
-    }
-  
-    .menuItems {
-      position:absolute;
-      top:38px;
-      right:0;
-      display: none;
-      flex-direction: column;
-      align-items:flex-start;
-      gap: 7px;
-      font-size: 16px;
-      border-radius: 10px;
-      background: rgb(14,138,138);
-      background: linear-gradient(
-        0deg,
-        rgba(13, 79, 62, 0.2) 0%,
-        rgb(90, 103, 127) 100%
-      );
-      padding: 10px 20px;
-      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-    }
-    .menuItems li a:hover{
-      color:rgb(21, 134, 96) ;
-    }
-    
-  
-    .menuOpen {
-      display: flex;
-      z-index: 1;
-    }
-  }
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4px 40px;
+  /* gap: 40px; */
+  z-index: 1000;
+  background-color: rgb(14, 138, 138);
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 10px;
+}
+
 .logo {
-    width: 150px;
-    height: 40px;
-    /* padding: 3px; */
+  width: 150px;
+  height: 40px;
 }
 
 .search_container {
-    position: relative;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 20px;
 }
 
 .search_icon {
-    position: absolute;
-    left: 14px;
-    color: grey;
+  position: absolute;
+  left: 10px;
+  color: grey;
 }
 
 .search_input {
-    height: 36px;
-    width: 370px;
-    padding: 0px 30px;
-    border-radius: 10px;
-    border: none;
-    color: rgb(60, 54, 54);
-    font-size: large;
-    
-}
-.search_input:focus{
-    outline: none;
+  width: 370px;
+  max-width: 100%;
+  padding: 8px 12px 8px 30px;
+  border-radius: 10px;
+  border: none;
+  font-size: large;
 }
 
+.search_input:focus {
+  outline:none;
+}
 
-.Navbar li:hover{
-    background-color: rgb(76, 154, 154);
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menuBtn {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: white;
+  font-weight: 600;
+}
+
+.menuItems {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.menuItems li a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.menuItems li a:hover {
+  color: grey;
+}
+
+@media screen and (max-width: 922px) {
+  .navbar {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+  }
+
+  .search_container {
+      margin-left: 10px;
+  }
+
+  .menu {
+      display: flex;
+      align-items: center;
+  }
+
+  .menuBtn {
+      display: block;
+  }
+
+  .menuItems {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgb(14, 138, 138);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+      display: none;
+  }
+
+  .menuItems.menuOpen {
+      display: flex;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+      padding: 0 20px;
+  }
+
+  .search_container {
+      margin-left: 10px;
+      width: 60%;
+  }
+
+  .menuBtn {
+      font-size: 27px;
+  }
+
+  .menuItems {
+      top: 50px;
+      padding: 10px 20px;
+  }
+
+  .menuItems li a {
+      font-size: 18px;
+  }
 }
