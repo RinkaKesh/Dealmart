@@ -8,15 +8,18 @@ require("dotenv").config()
 
 authRoute.post("/register",async(req,res)=>{
     try {
+        console.log("reached to registered");
         const {name,email,gender,password}=req.body;
         const isUserPresent=await UserModel.findOne({email})
         if(isUserPresent){
             res.status(403).send({error:`user with ${email} already exist`})
+            console.log('user present');
         }
         else{
             const hashedPassword=await bcrypt.hash(password,10)
             if(!hashedPassword){
                 res.status(400).send({error:`Error while hashing password`})
+                console.log(error in hasing);
             }
             else{
                 const newUser=new UserModel({name,gender,email,password:hashedPassword})

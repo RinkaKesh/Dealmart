@@ -65,6 +65,11 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.right input:focus{
+  outline: none;
+  /* border-color: teal; */
+  border: 1px solid teal;
+}
 
 .right p {
   font-size: 0.9rem;
