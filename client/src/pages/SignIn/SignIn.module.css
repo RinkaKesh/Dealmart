@@ -13,11 +13,11 @@
   padding: 20px;
 }
 .left ul{
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
 }
 .left li{
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 100;
 }
 
@@ -45,7 +45,7 @@
 
 .left img {
   max-width: 100%;
-  height: auto;
+  height: 500px;
 }
 
 .right form {
@@ -73,7 +73,7 @@
 }
 
 .right button {
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
   background-color: teal;
   color: white;
@@ -92,7 +92,7 @@
   text-align: center;
   color: rgb(14,138,138);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
 }
 .new_account:hover{
   color: teal;
@@ -106,11 +106,11 @@
 @media (max-width: 768px) {
   .signin_container {
     flex-direction: column;
+    
   }
   .left img{
-    
     max-width: 100%;
-    height: 200px;
+    height: 290px;
   
 }
 
@@ -118,9 +118,12 @@
     width: 100%;
     padding: 10px;
   }
+  .right p{
+    margin-top: 15px;
+  }
 
   .left {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
 
@@ -128,10 +131,13 @@
   .login_text {
     font-size: 0.9rem;
   }
+  .left{
+    margin-bottom: 10px;
+  }
   .left img{
     
       max-width: 100%;
-      height: 200px;
+      height: 250px;
     
   }
 

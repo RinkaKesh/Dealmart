@@ -10,7 +10,8 @@ export const SignIn = () => {
         <div className={style.login_text}>
           <ul>
             Login
-            <li>Get access to your Orders, <br />Wishlist and Recommendations</li>
+            <li>Get access to your Orders,</li>
+              <li>Wishlist and Recommendations</li>
           </ul>
         </div>
         <img src={login} alt="Login" />
@@ -22,10 +23,10 @@ export const SignIn = () => {
            
           <label htmlFor="password">Enter Password</label>
           <input type="password" name='password' id='password' />
-          <p>By continuing, you agree to TechNote's <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>.</p>
+          <p>By continuing, you agree to Dealmart's <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>.</p>
           <button type="submit">Login</button>
         </form> 
-        <Link className={style.new_account} to="/register">New to TechNote? Create an account</Link>
+        <Link className={style.new_account} to="/register">New to Dealmart? Create an account</Link>
       </div>
     </div>
   );
