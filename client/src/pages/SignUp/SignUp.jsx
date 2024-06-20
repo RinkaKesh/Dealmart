@@ -18,6 +18,8 @@ const SignUp = () => {
                 </div>
                 <div className={style.right}>
                     <form action="">
+                        <label htmlFor="email">Enter FullName</label>
+                        <input type="text" id="name" />
                         <label htmlFor="email">Enter Email</label>
                         <input type="email" id="email" />
                         <label htmlFor="password">Enter Password</label>
@@ -27,8 +29,8 @@ const SignUp = () => {
                         <div className={style.gender_container}>
 
                             <label htmlFor="male" >
-                               <input type="radio" className={style.gender} name='gender' id="male" />
-                                Male 
+                                <input type="radio" className={style.gender} name='gender' id="male" />
+                                Male
                             </label>
                             <label htmlFor="female" >
                                 <input type="radio" className={style.gender} name='gender' id="female" />
@@ -39,11 +41,11 @@ const SignUp = () => {
                                 Others
                             </label>
                         </div>
-                        
+
                         <p>By continuing, you agree to Dealmart's <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
                         <button type="submit">CONTINUE</button>
                     </form>
-            
+
                     <Link className={style.existing_account} to="/login">Existing User? Log In</Link>
                 </div>
             </div>
