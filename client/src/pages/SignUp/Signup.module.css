@@ -54,6 +54,7 @@
   .right form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
   }
   
   .right label {
@@ -155,6 +156,9 @@
   
     .left {
       margin-bottom: 10px;
+    }
+    .right form{
+      margin-bottom: 16px;
     }
   }
   

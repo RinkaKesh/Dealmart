@@ -39,11 +39,11 @@ const SignUp = () => {
                                 Others
                             </label>
                         </div>
-                        <br />
+                        
                         <p>By continuing, you agree to Dealmart's <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
                         <button type="submit">CONTINUE</button>
                     </form>
-                    <br />
+            
                     <Link className={style.existing_account} to="/login">Existing User? Log In</Link>
                 </div>
             </div>
