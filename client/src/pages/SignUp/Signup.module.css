@@ -145,10 +145,7 @@
       height: 290px;
     }
   
-    .left, .right {
-      width: 100%;
-      padding: 5px 10px;
-    }
+    
   
     .right p {
       margin-top: 13px;
@@ -165,13 +162,14 @@
   @media (max-width: 480px) {
     .signup_text {
       font-size: 0.9rem;
+      margin-bottom: 5px;
     }
     .left, .right {
       width: 100%;
-      padding: 3px 10px;
+      padding: 6px 10px;
     }
     .left {
-      margin-bottom: 8px;
+      margin-bottom:3px;
     }
   
     .left img {
@@ -189,6 +187,7 @@
   
     .right p {
       font-size: 0.8rem;
+     margin-top: 3px;
     }
     .right label {
       font-size: 16px;
