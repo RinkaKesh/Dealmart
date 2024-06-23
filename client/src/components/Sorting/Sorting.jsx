@@ -1,8 +1,9 @@
 import React from 'react';
+import style from './Sorting.module.css';
 
 const Sorting = ({ sortByPrice, filterByCategory, categories }) => {
   return (
-    <div>
+    <div className={style.sorting_container}>
       <h2>Sort By</h2>
       <button onClick={() => sortByPrice('asc')}>Price: Low to High</button>
       <button onClick={() => sortByPrice('desc')}>Price: High to Low</button>

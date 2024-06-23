@@ -1,118 +1,143 @@
-
 .product_card {
-    display: flex;
-    flex-direction: column;
-    justify-content:center ;
-    width: 280px;
-    /* height: 380px; */
-    /* border: 1px solid #ccc; */
-    /* border-radius: 5px; */
-    padding: 15px;
-    margin: 10px;
-    font-family: "Open Sans", sans-serif;
-    /* box-shadow: 1px 1px 1px 0px gray; */
-    border-right: 1px solid rgb(234, 232, 232);
-  }
-  
-  .product_card>img {
-    width: 40%;
-    margin: 0 25%;
-    /* transform:skewY(5deg); */
-    height:180px;
-    border-radius: 5px;
-    padding: 7px;
-    z-index: 0;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+  width: 100%; 
+  box-sizing: border-box;
+}
 
-  }
-  
-  .product_card h2 {
+.product_card:hover {
+  transform: scale(1.02);
+}
+
+.wishlist {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  color:rgb(237, 17, 54);
+}
+
+.wishlist_icon {
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.product_card img {
+  max-width: 100%;
+  height: 150px; 
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.product_card h2 {
+  font-size: 1em;
+  margin: 10px 0;
+  text-align: center;
+  color: #333;
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    /* text-align: justify; */
+}
+
+.product_card a {
+  text-decoration: none;
+  color: #14c4c4;
+  margin-bottom: 10px;
+}
+
+.product_card h4 {
+  font-size: 1em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.product_card h4 svg {
+  margin-right: 5px;
+}
+
+.product_card .good {
+  color: green;
+}
+
+.product_card .bad {
+  color: red;
+}
+
+.product_card .button_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.product_card button {
+  background-color: #14c4c4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  flex: 1;
+  margin: 5px;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product_card button:hover {
+  background-color: #0b9d9d;
+}
+
+.product_card .addTocart {
+  margin-right: 5px;
+}
+
+/* Media Queries */
+ @media (max-width: 1199px) {
+  .button_container button {
     font-size: 16px;
-    margin-top: 10px;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    text-align: center;
   }
-  
-  
-  .product_card h4 {
-    font-size: 16px;
-    margin-top: 8px;
-    color: brown;
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
+}
+
+@media (max-width: 1050px) {
+  .button_container button {
+    font-size: 13px;
   }
-  .product_card .button_container{
-    /* margin-top:5px; */
-    display: flex;
-    justify-content: center;
-    gap: 6px;
+}
+
+/* @media (max-width: 950px) {
+  .product_card {
+    width: 48%;
   }
-  
-  .product_card button {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    width: 100%;
-    background-color:teal;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+} */
+
+/* @media (max-width: 768px) {
+  .product_card {
+    width: 100%; 
   }
-  
-  .product_card button:hover {
-    background-color:rgb(79, 122, 122);
+} */
+
+/* @media (max-width: 600px) {
+  .product_card {
+    width: 100%; 
   }
-  .product_card .details{
-    background-color: grey;
-    color: antiquewhite;
+} */
+
+/* @media (max-width: 480px) {
+  .product_card {
+    width: 100%; 
   }
-  .product_card a{
-    text-decoration: underline;
-    font-size: 17px;
-    color: gray;
-    font-weight: 600;
-  }
-  .product_card p{
-    margin-top:4px;
-  }
-  
-  .product_card .addTocart{
-    font-size: 18px;
-    margin-right: 5px;
-    align-items: center;
-  }
-  .product_card span{
-    display: flex;
-    flex-direction: row-reverse;
-  }
-  .wishlist>p{
-    visibility: hidden;
-    background-color: rgb(193, 171, 144);
-    color: rgb(90, 83, 83);
-    padding: 2px;
-    position: absolute;
-    z-index: 1;
-  }
-  .wishlist_icon:hover{
-    content: counter(Add to wishlist);
-  }
-  .product_card .wishlist_icon{
-    color: rgb(200, 24, 83);
-    font-size: 20px;
-    cursor:pointer;
-    
-    
-    
-  }
-  .good{
-    color: green;
-  }
-  .bad{
-    color: red;
-  }
+}  */

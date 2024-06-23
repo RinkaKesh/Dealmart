@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import style from "./ProductDetail.module.css";
+import { CartContext } from '../../Context/CartProvider';
 
 const ProductDetail = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [expanded, setExpanded] = useState(false);
+  const {addToCart}=useContext(CartContext)
 
   const toggleDescription = () => {
     setExpanded(!expanded);
@@ -47,7 +49,7 @@ const ProductDetail = () => {
       )}
       <h4>Price: INR {Math.floor(product.price*85)}</h4>
       <div className={style.button_container}>
-        <button>Add to cart</button>
+        <button onClick={()=>addToCart(product)}>Add to cart</button>
         <button>Buy Now</button>
       </div>
     </div>

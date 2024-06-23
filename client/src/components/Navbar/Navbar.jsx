@@ -34,7 +34,7 @@ const Navbar = () => {
                 >
                     <li className={styles.user_container}><Link to="/login"><IoPersonSharp />Login</Link></li>
                     <li className={styles.cart_container}><Link to="/cart"><BsCart4 />Cart</Link></li>
-                    <li className={styles.seller_container}><Link><PiGiftBold />Become a Seller</Link></li>
+                    <li className={styles.seller_container}><Link><PiGiftBold />Contact Us</Link></li>
                 </ul>
             </div>
         </nav>

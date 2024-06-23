@@ -8,6 +8,7 @@ import {Routes,Route} from "react-router-dom"
 import ProductDetail from './pages/ProductDetail/ProductDetail'
 import Footer from './pages/Footer/Footer'
 import Cart from './pages/Cart/Cart'
+import Wishlist from './pages/Wishlist/Wishlist'
 
 
 
@@ -24,6 +25,8 @@ function App() {
       <Route path='/product' element={<Product/>}/>
       <Route path="/product/:productId" element={<ProductDetail/>}  />
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/wishlist' element={<Wishlist/>}/>
+
 
       </Routes>
        {/* <Footer/> */}

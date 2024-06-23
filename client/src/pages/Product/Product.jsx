@@ -1,17 +1,22 @@
 // Product.js
 import React, { useEffect, useState, useContext } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { IoReturnUpBack } from "react-icons/io5";
+import { FaHeartCirclePlus } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Sorting from '../../components/Sorting/Sorting';
 import style from "./Product.module.css";
 import { CartContext } from '../../Context/CartProvider'
+// import Wishlist from '../Wishlist/Wishlist';
+import { wishlistContext } from '../../Context/wishlistProvider';
 
 const Product = () => {
   const [productData, setProductData] = useState([]);
   const [sortOrder, setSortOrder] = useState('');
   const [category, setCategory] = useState('');
-  const { addToCart, navigateToCart, cart } = useContext(CartContext);
+  const { addToCart, navigateToCart, cart ,addToCartText} = useContext(CartContext);
+  const {wishlist,setwishlist,addToWishlist,addToWishlistText}=useContext(wishlistContext)
 
   useEffect(() => {
     async function getProducts() {
@@ -44,12 +49,28 @@ const Product = () => {
 
   return (
     <div className={style.product_container}>
-      <div className={style.cart_navbar}>
+      <div className={style.cart_wishlist}>
+        <div className={style.backTohome}>
+        <Link to="/" >
+          <IoReturnUpBack className={style.icon} />
+          <span>Homepage</span>
+        </Link>
+        </div>
+        <div className={style.wishlist}  >
+        <Link to="/wishlist" >
+          <FaHeartCirclePlus className={style.wishlisticon} />
+          <span>Wishlist ({wishlist.length})</span>
+        </Link>
+        </div>
+        <div className={style.cart_navbar}>
         <Link to="/cart" className={style.cart_link} onClick={navigateToCart}>
-          <FaShoppingCart className={style.cart_icon} />
+          <FaShoppingCart className={style.icon} />
           <span>Cart ({cart.length})</span>
         </Link>
       </div>
+      </div>
+      <p className={style.addToText}>{addToCartText}</p>
+      <p className={style.addToText}>{addToWishlistText}</p>
       <div className={style.main_container}>
         <div className={style.sidebar}>
           <Sorting
@@ -60,7 +81,7 @@ const Product = () => {
         </div>
         <div className={style.product_grid}>
           {filteredProducts.map(product => (
-            <ProductCard key={product.id} product={product} addToCart={addToCart} />
+            <ProductCard key={product.id} product={product} addToCart={addToCart} addToWishlist={addToWishlist} />
           ))}
         </div>
       </div>

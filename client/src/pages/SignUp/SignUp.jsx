@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import style from "./Signup.module.css";
 import login from "../../../public/login/signup.webp";
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import axios from 'axios'
 
 const SignUp = () => {
+    const navigate=useNavigate()
     const defaultFormdata={name:"",email:"",gender:"",password:""}
     const [formdata,setFormdata]=useState(defaultFormdata)
 
@@ -16,6 +17,9 @@ const SignUp = () => {
              if(res.status===200){
                 alert(res.data.message)
                 console.log(res.data.message);
+                setTimeout(()=>{
+                  navigate("/login")
+                },500)
              }
         } catch (error) {
             console.log(error);
@@ -28,6 +32,7 @@ const SignUp = () => {
               }
             }
         }
+        setFormdata(defaultFormdata)
         
     }
 
@@ -52,12 +57,12 @@ const SignUp = () => {
                 <div className={style.right}>
 
                     <form action="" onSubmit={handleSubmit}>
-                        <label htmlFor="email">Enter FullName</label>
-                        <input type="text" id="name" value={formdata.name} onChange={handleChange} name='name'/>
+                        <label htmlFor="email">Enter Full Name</label>
+                        <input type="text" id="name" value={formdata.name} onChange={handleChange} name='name' placeholder='Enter Full Name'/>
                         <label htmlFor="email">Enter Email</label>
-                        <input type="email" id="email" value={formdata.email} onChange={handleChange} name='email' />
+                        <input type="email" id="email" value={formdata.email} onChange={handleChange} name='email' placeholder='example@email.com'/>
                         <label htmlFor="password">Enter Password</label>
-                        <input type="password" id="password" value={formdata.password} onChange={handleChange} name='password'/>
+                        <input type="password" id="password" value={formdata.password} onChange={handleChange} name='password' placeholder='Enter Password'/>
 
                         <label>Select Gender</label>
                         <div className={style.gender_container}>
