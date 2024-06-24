@@ -6,11 +6,13 @@ import {BrowserRouter} from "react-router-dom"
 import { CartProvider } from './Context/CartProvider.jsx';
 import AuthContextProvider from './Context/AuthContext.jsx';
 import WishlistProvider from './Context/wishlistProvider.jsx';
+import AddItemStyleProvider from './Context/AddItemStyleProvider.jsx';
 
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <AddItemStyleProvider>
   <WishlistProvider>
   <CartProvider>
     <AuthContextProvider>
@@ -20,5 +22,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </AuthContextProvider>
    
   </CartProvider>
-  </WishlistProvider>,
+  </WishlistProvider>
+  </AddItemStyleProvider>,
 )

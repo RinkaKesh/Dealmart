@@ -10,11 +10,11 @@
     color: teal;
   }
   
-  .wishlistText {
+  /* .wishlistText {
     color: green;
     text-align: center;
     margin-bottom: 10px;
-  }
+  } */
   
   .top_Container {
     display: flex;
@@ -115,7 +115,7 @@
   }
   
   .addButton {
-    background-color: #4caf50;
+    background-color:rgb(11, 119, 119);
     color: white;
   }
   

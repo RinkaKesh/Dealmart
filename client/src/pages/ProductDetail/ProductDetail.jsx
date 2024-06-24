@@ -1,17 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import style from "./ProductDetail.module.css";
 import { CartContext } from '../../Context/CartProvider';
+import { ItemAddStyleContext } from '../../Context/AddItemStyleProvider'
+import { IoReturnUpBack } from "react-icons/io5";
+// import { Link } from '@mui/material';
 
 const ProductDetail = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [expanded, setExpanded] = useState(false);
-  const {addToCart}=useContext(CartContext)
+  const {addToCart,addToCartText}=useContext(CartContext)
+  const {ItemAddStyle}=useContext(ItemAddStyleContext)
+  const [buyText,setBuyText]=useState("")
 
   const toggleDescription = () => {
     setExpanded(!expanded);
   };
+  const handleBuy=()=>{
+     setBuyText("Order Placed Successfully")
+     setTimeout(()=>{
+      setBuyText("")
+     },800)
+  }
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -36,7 +47,13 @@ const ProductDetail = () => {
   }
 
   return (
+   <>
+   <p style={ItemAddStyle}>{addToCartText}</p>
+   <p style={ItemAddStyle}>{buyText}</p>
+   
+    
     <div className={style.ProductDetail_card}>
+    <Link to="/product"><IoReturnUpBack/>Products</Link>
       <h2>{product.title}</h2>
       <img src={product.image} alt={product.title} />
       <p className={expanded ? style.description + ' ' + style['show-more'] : style.description}>
@@ -47,12 +64,14 @@ const ProductDetail = () => {
           {expanded ? "...Read Less" : "...Read More"}
         </p>
       )}
-      <h4>Price: INR {Math.floor(product.price*85)}</h4>
+      <h4>Price: INR {Math.floor(product.price*80)}</h4>
       <div className={style.button_container}>
         <button onClick={()=>addToCart(product)}>Add to cart</button>
-        <button>Buy Now</button>
+        <button onClick={handleBuy}>Buy Now</button>
       </div>
     </div>
+   
+    </>
   );
 };
 

@@ -5,8 +5,12 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { LuIndianRupee } from "react-icons/lu";
 import style from "./ProductCard.module.css";
 
-const ProductCard = ({ product, addToCart,addToWishlist }) => {
+const ProductCard = ({ product, addToCart, addToWishlist }) => {
   const { title, price, image, rating, id } = product;
+
+  const handleAddToCart = () => {
+    addToCart({ ...product, quantity: 1 });
+  };
 
   return (
     <div className={style.product_card}>
@@ -17,10 +21,10 @@ const ProductCard = ({ product, addToCart,addToWishlist }) => {
       <img src={image} alt={title} />
       <h2>{title}</h2>
       <Link to={`/product/${id}`}>View Details</Link>
-      <h4>Price:<LuIndianRupee /> {Math.floor(price * 85)}</h4>
+      <h4>Price:<LuIndianRupee /> {Math.floor(price * 80)}</h4>
       <p className={rating.rate >= 3 ? style.good : style.bad}>Rating : {rating.rate}/5</p>
       <div className={style.button_container}>
-        <button onClick={() => addToCart(product)}>
+        <button onClick={handleAddToCart}>
           <MdAddShoppingCart className={style.addTocart} />Add to Cart
         </button>
         <button>Buy Now</button>

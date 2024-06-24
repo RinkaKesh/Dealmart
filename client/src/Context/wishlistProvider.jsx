@@ -1,24 +1,29 @@
-import React,{useState} from 'react'
-import { createContext } from 'react'
-export const wishlistContext=createContext()
+import React, { useState, createContext } from 'react';
 
-const WishlistProvider = ({children}) => {
-    const [wishlist, setwishlist] = useState([]);
-    const [addToWishlistText,setAddtowishlistText]=useState("")
+export const wishlistContext = createContext();
+
+const WishlistProvider = ({ children }) => {
+  const [wishlist, setWishlist] = useState([]);
+  const [addToWishlistText, setAddToWishlistText] = useState("");
 
   const addToWishlist = (product) => {
-    setwishlist([...wishlist, product]);
-    setAddtowishlistText("Item added to Wishlist")
-    setTimeout(()=>{
-         setAddtowishlistText("")
-    },1200)
-
+    const isAlreadyInWishlist = wishlist.some(item => item.id === product.id);
+    if (isAlreadyInWishlist) {
+      setAddToWishlistText("Item is already in Wishlist");
+    } else {
+      setWishlist([...wishlist, product]);
+      setAddToWishlistText("Item added to Wishlist");
+    }
+    setTimeout(() => {
+      setAddToWishlistText("");
+    }, 1200);
   };
+
   return (
-    <wishlistContext.Provider value={{wishlist,setwishlist,addToWishlist,addToWishlistText}}>
+    <wishlistContext.Provider value={{ wishlist, setWishlist, addToWishlist, addToWishlistText }}>
       {children}
     </wishlistContext.Provider>
-  )
-}
+  );
+};
 
-export default WishlistProvider
+export default WishlistProvider;

@@ -1,12 +1,23 @@
+
+
 .ProductDetail_card {
-    width: 400px; /* Adjust width as needed */
+    width: 400px; 
     border: 1px solid #ccc;
     border-radius: 5px;
     padding:15px 20px 20px 20px;
-    margin: 40px auto;
+    margin: 100px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+  }
+  .ProductDetail_card a{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: teal;
   }
   
   .ProductDetail_card h2 {

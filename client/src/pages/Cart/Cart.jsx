@@ -1,23 +1,24 @@
+// Cart.js
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../Context/CartProvider';
 import style from "./Cart.module.css";
 import { AuthContext } from '../../Context/AuthContext';
-import { Navigate, useNavigate,Link } from 'react-router-dom';
+import { Navigate, useNavigate, Link } from 'react-router-dom';
 import { IoReturnUpBack } from "react-icons/io5";
+import { ItemAddStyleContext } from '../../Context/AddItemStyleProvider'
 
 const Cart = () => {
   const { userDetail, isAuth } = useContext(AuthContext);
-  const { cart, setCart } = useContext(CartContext);
-  const [cartText, setCartText] = useState("");
+  const {ItemAddStyle}=useContext(ItemAddStyleContext)
+  const { cart, setCart, getTotalItems } = useContext(CartContext);
+  const [cartText, setCartText] = useState(null);
   const navigate = useNavigate();
 
-  // if (!isAuth) {
-  //   alert("Please Login First");
-  //   return <Navigate to="/login" />;
-  // }
-
   const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    return cart.reduce((total, item, index) => {
+      const itemPrice = index === 0 ? Math.floor(item.price * 80):Math.floor(item.price*80);
+      return Math.floor(total + itemPrice * item.quantity);
+    }, 0);
   };
 
   const handleRemoveItem = (index) => {
@@ -65,44 +66,43 @@ const Cart = () => {
 
   return (
     <div className={style.cart_container}>
-      <p className={style.cartText}>{cartText}</p>
+      <p style={ItemAddStyle}>{cartText}</p>
       <div className={style.cart_top_container}>
         <h2>My Cart</h2>
-        <Link to="/product"> <IoReturnUpBack />product page</Link>
-        </div>
-        <div className={style.username}>
-          <h3>Hello, {userDetail.username}</h3>
-          <p>Total Items: {cart.length}</p>
-        </div>
-    
-
+        <Link to="/product"> <IoReturnUpBack />Products</Link>
+        <Link to="/wishlist"> <IoReturnUpBack />Wishlist</Link>
+      </div>
+      <div className={style.username}>
+        <h3>Hello, {userDetail.username}</h3>
+        <p>Total Items: {getTotalItems()}</p>
+      </div>
       {cart.length === 0 ? (
         <h3 className={style.emptyCart}>Your cart is empty.</h3>
       ) : (
         <div>
-        <div className={style.cartItems}>
-          {cart.map((item, index) => (
-            <div key={index} className={style.cart_item}>
-              <img src={item.image} alt={item.title} className={style.itemImage} />
-              <div className={style.cart_item_info}>
-                <p className={style.cart_item_title}>{item.title}</p>
-                <p className={style.cart_item_price}>${(item.price * item.quantity).toFixed(2)}</p>
-                <div className={style.quantity_container}>
-                  <button className={style.quantity_button} onClick={() => decreaseQuantity(index)}>-</button>
-                  <span>{item.quantity}</span>
-                  <button className={style.quantity_button} onClick={() => increaseQuantity(index)}>+</button>
+          <div className={style.cartItems}>
+            {cart.map((item, index) => (
+              <div key={index} className={style.cart_item}>
+                <img src={item.image} alt={item.title} className={style.itemImage} />
+                <div className={style.cart_item_info}>
+                  <p className={style.cart_item_title}>{item.title}</p>
+                  <p className={style.cart_item_price}>Rs.{(Math.floor(item.price * 80))*item.quantity}</p>
+                  <div className={style.quantity_container}>
+                    <button className={style.quantity_button} onClick={() => decreaseQuantity(index)}>-</button>
+                    <span>{item.quantity}</span>
+                    <button className={style.quantity_button} onClick={() => increaseQuantity(index)}>+</button>
+                  </div>
+                </div>
+                <div className={style.cart_buttons}>
+                  <button className={style.remove_button} onClick={() => handleRemoveItem(index)}>Remove</button>
+                  <button className={style.buy_button} onClick={() => handleBuyItem(index)}>Buy</button>
                 </div>
               </div>
-              <div className={style.cart_buttons}>
-                <button className={style.remove_button} onClick={() => handleRemoveItem(index)}>Remove</button>
-                <button className={style.buy_button} onClick={() => handleBuyItem(index)}>Buy Now</button>
-              </div>
-            </div>
-          ))}
+            ))}
           </div>
-          <div className={style.cart_order}>
-            <p className={style.cart_total}>Total: ${calculateTotal()}</p>
-            <button className={style.place_order_button} onClick={handlePlaceOrder}>Place Order</button>
+          <div className={style.total_price}>
+            <h3>Total Price: Rs. {calculateTotal()}</h3>
+            <button className={style.order_button} onClick={handlePlaceOrder}>Place Order</button>
           </div>
         </div>
       )}

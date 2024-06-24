@@ -5,21 +5,18 @@ import style from "./Wishlist.module.css";
 import { AuthContext } from '../../Context/AuthContext';
 import { Link, Navigate } from 'react-router-dom';
 import { IoReturnUpBack } from "react-icons/io5";
+import { ItemAddStyleContext } from '../../Context/AddItemStyleProvider'
 
 const Wishlist = () => {
   const { userDetail, isAuth } = useContext(AuthContext);
-  const { addToCart } = useContext(CartContext);
-  const { wishlist, setwishlist } = useContext(wishlistContext);
+  const { addToCart, addToCartText } = useContext(CartContext);
+  const {ItemAddStyle}=useContext(ItemAddStyleContext)
+  const { wishlist, setWishlist, addToWishlistText } = useContext(wishlistContext);
   const [wishlistText, setWishlistText] = useState("");
-
-  // if (!isAuth) {
-  //   alert("Please Login First");
-  //   return <Navigate to="/login" />;
-  // }
 
   const handleRemoveItem = (index) => {
     const updatedWishlist = wishlist.filter((_, i) => i !== index);
-    setwishlist(updatedWishlist);
+    setWishlist(updatedWishlist);
     setWishlistText("Item Removed from Wishlist");
     setTimeout(() => {
       setWishlistText("");
@@ -28,10 +25,11 @@ const Wishlist = () => {
 
   return (
     <div className={style.wishlist_container}>
-      <p className={style.wishlistText}>{wishlistText}</p>
+      <p style={ItemAddStyle}>{wishlistText}</p>
+      <p style={ItemAddStyle}>{addToCartText}</p>
       <div className={style.top_Container}>
         <h1>My Wishlist</h1>
-        <Link to="/product" className={style.backLink}> <IoReturnUpBack/>Product Page</Link>
+        <Link to="/product" className={style.backLink}> <IoReturnUpBack />Product Page</Link>
       </div>
       <div className={style.username}>
         <h3>Hello, {userDetail.username}</h3>
@@ -47,7 +45,7 @@ const Wishlist = () => {
               <img src={item.image} alt={item.title} className={style.itemImage} />
               <div className={style.itemInfo}>
                 <p className={style.itemTitle}>{item.title}</p>
-                <p className={style.itemPrice}>${item.price}</p>
+                <p className={style.itemPrice}>Rs.{Math.floor(item.price*80)}</p>
               </div>
               <div className={style.itemButtons}>
                 <button className={style.removeButton} onClick={() => handleRemoveItem(index)}>Remove</button>

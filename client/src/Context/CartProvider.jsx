@@ -5,34 +5,32 @@ import { AuthContext } from './AuthContext';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  // const [isClicked,setIsClicked]=useState(false)
   const [cart, setCart] = useState([]);
-  const [addToCartText,setAddtoCartText]=useState("")
+  const [addToCartText, setAddtoCartText] = useState("");
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-    setAddtoCartText("Item added to cart")
-    setTimeout(()=>{
-      setAddtoCartText("")
-      
-    },1200)
-    
+  const addToCart = (newItem) => {
+    setCart(prevCart => {
+      const existingItemIndex = prevCart.findIndex(item => item.id === newItem.id);
+      if (existingItemIndex >= 0) {
+        const updatedCart = [...prevCart];
+        updatedCart[existingItemIndex].quantity += 1;
+        return updatedCart;
+      } else {
+        return [...prevCart, { ...newItem, quantity: 1 }];
+      }
+    });
+    setAddtoCartText("Item added to cart");
+    setTimeout(() => {
+      setAddtoCartText("");
+    }, 1000);
   };
 
-  const navigateToCart = () => {
-    // const {isAuth,userDetail}=useContext(AuthContext)
-    // if(!isAuth){
-    //   alert("Login First")
-    //   return <Navigate to="/login" />;
-    // }
-    // else{
-    //   return <Navigate to="/cart" />;
-    // }
-    
+  const getTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, navigateToCart ,setCart,addToCartText}}>
+    <CartContext.Provider value={{ cart, addToCart, setCart, addToCartText, getTotalItems }}>
       {children}
     </CartContext.Provider>
   );
