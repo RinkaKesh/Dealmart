@@ -67,7 +67,7 @@
 
 
 
-/* For screens with a maximum width of 973px */
+/*  973px */
 @media (max-width: 973px) {
     .footertop_container {
         flex-direction: column;
@@ -78,15 +78,15 @@
     
     }
     
-    .footertop_left_container,
+     .footertop_left_container,
     .footertop_right_container {
-        flex-direction: row;
+         flex-direction: row;
         justify-content: center;
         gap: 10px;
-        text-align: justify;
-        /* text-wrap: wrap; */
-    }
+        text-align: justify; 
     
+    } 
+     
     .footertop_right_container ul{
         list-style-type: none;
     }
@@ -103,8 +103,8 @@
 }
 
 /*  maximum width 768px */
-/* @media (max-width: 480px) {
-    .footertop_container {
+@media (max-width: 480px) {
+    /* .footertop_container {
         flex-direction: column;
         align-items: center;
     }
@@ -122,5 +122,10 @@
         width: 100%;
         max-width: 400px;
         text-align: center;
-    }
-} */
+    } */
+
+    .footertop_left_container a,
+.footertop_right_container li{
+    font-size: 14px;
+}
+}

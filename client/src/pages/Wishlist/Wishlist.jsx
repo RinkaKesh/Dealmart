@@ -3,7 +3,7 @@ import { CartContext } from '../../Context/CartProvider';
 import { wishlistContext } from '../../Context/wishlistProvider';
 import style from "./Wishlist.module.css";
 import { AuthContext } from '../../Context/AuthContext';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate,useNavigate } from 'react-router-dom';
 import { IoReturnUpBack } from "react-icons/io5";
 import { ItemAddStyleContext } from '../../Context/AddItemStyleProvider'
 
@@ -13,6 +13,11 @@ const Wishlist = () => {
   const {ItemAddStyle}=useContext(ItemAddStyleContext)
   const { wishlist, setWishlist, addToWishlistText } = useContext(wishlistContext);
   const [wishlistText, setWishlistText] = useState("");
+  const navigate = useNavigate();
+  if(!isAuth){
+    alert("Please Login First")
+    return <Navigate to="/login" />
+  }
 
   const handleRemoveItem = (index) => {
     const updatedWishlist = wishlist.filter((_, i) => i !== index);

@@ -1,5 +1,5 @@
 /* forced colors mode */
-@media (forced-colors: active) {
+/* @media (forced-colors: active) {
   .signup_container img {
     border: 2px solid WindowText;
     background-color: Window;
@@ -27,7 +27,7 @@
   .existing_account:hover {
     color: HighlightText;
   }
-}
+} */
 
 /* General */
 .signup_container {
@@ -163,6 +163,15 @@
   color: teal;
   text-decoration: underline;
 }
+.validPassword{
+  margin-top:0px;
+}
+.right .errortextStyle{
+  color: rgb(198, 25, 25);
+  margin-top: 0px;
+  font-size: 16px;
+}
+
 
 /* Tablet */
 @media (max-width: 768px) {

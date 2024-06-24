@@ -14,7 +14,6 @@ export const SignIn = () => {
 
   useEffect(() => {
     console.log("userDetail changed:", userDetail);
-    // You can perform any actions here based on the updated userDetail state
   }, [userDetail]);
 
   const handleSubmit = async (e) => {

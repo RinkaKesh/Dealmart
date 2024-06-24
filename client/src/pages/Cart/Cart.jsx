@@ -8,11 +8,16 @@ import { IoReturnUpBack } from "react-icons/io5";
 import { ItemAddStyleContext } from '../../Context/AddItemStyleProvider'
 
 const Cart = () => {
+
   const { userDetail, isAuth } = useContext(AuthContext);
   const {ItemAddStyle}=useContext(ItemAddStyleContext)
   const { cart, setCart, getTotalItems } = useContext(CartContext);
   const [cartText, setCartText] = useState(null);
   const navigate = useNavigate();
+  if(!isAuth){
+    alert("Please Login First")
+    return <Navigate to="/login" />
+  }
 
   const calculateTotal = () => {
     return cart.reduce((total, item, index) => {
