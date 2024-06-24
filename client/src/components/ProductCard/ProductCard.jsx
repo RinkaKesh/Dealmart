@@ -5,13 +5,15 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { LuIndianRupee } from "react-icons/lu";
 import style from "./ProductCard.module.css";
 
-const ProductCard = ({ product, addToCart, addToWishlist }) => {
+
+const ProductCard = ({ product, addToCart, addToWishlist ,handleBuy}) => {
   const { title, price, image, rating, id } = product;
+  
 
   const handleAddToCart = () => {
     addToCart({ ...product, quantity: 1 });
   };
-
+  
   return (
     <div className={style.product_card}>
       <span className={style.wishlist} onClick={() => addToWishlist(product)}>
@@ -27,7 +29,7 @@ const ProductCard = ({ product, addToCart, addToWishlist }) => {
         <button onClick={handleAddToCart}>
           <MdAddShoppingCart className={style.addTocart} />Add to Cart
         </button>
-        <button>Buy Now</button>
+        <button onClick={handleBuy}>Buy Now</button>
       </div>
     </div>
   );

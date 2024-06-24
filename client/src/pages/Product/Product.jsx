@@ -18,6 +18,7 @@ const Product = () => {
   const {ItemAddStyle}=useContext(ItemAddStyleContext)
   const { addToCart, navigateToCart, cart, addToCartText, getTotalItems } = useContext(CartContext);
   const { wishlist, addToWishlist, addToWishlistText } = useContext(wishlistContext);
+  const [buyText,setBuyText]=useState("")
 
   useEffect(() => {
     async function getProducts() {
@@ -47,6 +48,13 @@ const Product = () => {
   const filteredProducts = productData.filter(product =>
     category ? product.category === category : true
   );
+  const handleBuy=()=>{
+    setBuyText("Order Placed Successfully")
+    setTimeout(()=>{
+     setBuyText("")
+    },800)
+ }
+
 
   return (
     <div className={style.product_container}>
@@ -72,6 +80,7 @@ const Product = () => {
       </div>
       <p style={ItemAddStyle}>{addToCartText}</p>
       <p style={ItemAddStyle}>{addToWishlistText}</p>
+      <p style={ItemAddStyle}>{buyText}</p>
       <div className={style.main_container}>
         <div className={style.sidebar}>
           <Sorting
@@ -87,6 +96,7 @@ const Product = () => {
               product={product}
               addToCart={addToCart}
               addToWishlist={addToWishlist}
+              handleBuy={handleBuy}
             />
           ))}
         </div>
