@@ -63,10 +63,10 @@ export const SignIn = () => {
       <div className={style.right}>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Enter Email</label>
-          <input type="email" id="email" value={formdata.email} onChange={handleChange} name='email' placeholder='example@gmail.com'  />
+          <input type="email" id="email" value={formdata.email} onChange={handleChange} name='email' placeholder='example@gmail.com' required/>
 
           <label htmlFor="password">Enter Password</label>
-          <input type="password" id="password" value={formdata.password} onChange={handleChange} name='password' placeholder='Enter Password' />
+          <input type="password" id="password" value={formdata.password} onChange={handleChange} name='password' placeholder='Enter Password' required />
           <p>By continuing, you agree to Dealmart's <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>.</p>
           <button type="submit">Login</button>
         </form>

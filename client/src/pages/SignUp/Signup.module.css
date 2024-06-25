@@ -199,6 +199,7 @@
 
 /* Mobile */
 @media (max-width: 480px) {
+
   .signup_text {
     font-size: 0.9rem;
     margin-bottom: 5px;
@@ -207,6 +208,9 @@
   .left, .right {
     width: 100%;
     padding: 6px 10px;
+  }
+  .right{
+    margin-bottom: 10px;
   }
 
   .left {
