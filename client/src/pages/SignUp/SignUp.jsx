@@ -25,7 +25,7 @@ const SignUp = () => {
         setError(null);
         const { confirm_password, ...submissionData } = formdata;
         try {
-            const res = await axios.post("http://localhost:8080/user/register", submissionData, { withCredentials: true });
+            const res = await axios.post("https://dealmart-server.vercel.app/user/register", submissionData, { withCredentials: true });
             if (res.status === 200) {
                 alert(res.data.message);
                 console.log(res.data.message);
