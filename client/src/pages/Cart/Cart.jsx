@@ -10,18 +10,18 @@ import { ItemAddStyleContext } from '../../Context/AddItemStyleProvider'
 const Cart = () => {
 
   const { userDetail, isAuth } = useContext(AuthContext);
-  const {ItemAddStyle}=useContext(ItemAddStyleContext)
+  const { ItemAddStyle } = useContext(ItemAddStyleContext)
   const { cart, setCart, getTotalItems } = useContext(CartContext);
   const [cartText, setCartText] = useState(null);
   const navigate = useNavigate();
-  if(!isAuth){
+  if (!isAuth) {
     alert("Please Login First")
     return <Navigate to="/login" />
   }
 
   const calculateTotal = () => {
     return cart.reduce((total, item, index) => {
-      const itemPrice = index === 0 ? Math.floor(item.price * 80):Math.floor(item.price*80);
+      const itemPrice = index === 0 ? Math.floor(item.price * 80) : Math.floor(item.price * 80);
       return Math.floor(total + itemPrice * item.quantity);
     }, 0);
   };
@@ -56,18 +56,21 @@ const Cart = () => {
   };
 
   const increaseQuantity = (index) => {
-    const updatedCart = cart.map((item, i) => 
+    const updatedCart = cart.map((item, i) =>
       i === index ? { ...item, quantity: item.quantity + 1 } : item
     );
     setCart(updatedCart);
   };
 
   const decreaseQuantity = (index) => {
-    const updatedCart = cart.map((item, i) => 
+    const updatedCart = cart.map((item, i) =>
       i === index && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
     );
     setCart(updatedCart);
   };
+  const handleLink = (id) => {
+    navigate(`/product/${id}`)
+  }
 
   return (
     <div className={style.cart_container}>
@@ -87,20 +90,26 @@ const Cart = () => {
         <div>
           <div className={style.cartItems}>
             {cart.map((item, index) => (
-              <div key={index} className={style.cart_item}>
+              <div key={index} className={style.cart_item} onClick={() => handleLink(item.id)}>
                 <img src={item.image} alt={item.title} className={style.itemImage} />
                 <div className={style.cart_item_info}>
                   <p className={style.cart_item_title}>{item.title}</p>
-                  <p className={style.cart_item_price}>Rs.{(Math.floor(item.price * 80))*item.quantity}</p>
+                  <p className={style.cart_item_price}>Rs.{(Math.floor(item.price * 80)) * item.quantity}</p>
                   <div className={style.quantity_container}>
-                    <button className={style.quantity_button} onClick={() => decreaseQuantity(index)}>-</button>
+                    <button className={style.quantity_button}
+                     onClick={(e) => {
+                      e.stopPropagation()
+                     decreaseQuantity(index)}}>-</button>
                     <span>{item.quantity}</span>
-                    <button className={style.quantity_button} onClick={() => increaseQuantity(index)}>+</button>
+                    <button className={style.quantity_button}
+                     onClick={(e) =>{
+                      e.stopPropagation()
+                      increaseQuantity(index)}}>+</button>
                   </div>
                 </div>
                 <div className={style.cart_buttons}>
-                  <button className={style.remove_button} onClick={() => handleRemoveItem(index)}>Remove</button>
-                  <button className={style.buy_button} onClick={() => handleBuyItem(index)}>Buy</button>
+                  <button className={style.remove_button} onClick={(e) =>{ e.stopPropagation();handleRemoveItem(index)}}>Remove</button>
+                  <button className={style.buy_button} onClick={(e) =>{e.stopPropagation();handleBuyItem(index)}}>Buy</button>
                 </div>
               </div>
             ))}

@@ -132,11 +132,24 @@
     color: #007bff;
     font-size: 16px;
   }
+  .goToCartLink button {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
   
   .emptyWishlist {
     text-align: center;
     font-size: 1.5em;
     color: #555;
+  }
+  .link{
+    display: block;
+    text-decoration: none;
+    color: inherit;
   }
   
   /* Responsive Design */
