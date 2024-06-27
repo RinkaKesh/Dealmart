@@ -12,16 +12,18 @@ import AddItemStyleProvider from './Context/AddItemStyleProvider.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <AuthContextProvider>
   <AddItemStyleProvider>
   <WishlistProvider>
   <CartProvider>
-    <AuthContextProvider>
+   
     <BrowserRouter>
     <App />
     </BrowserRouter>
-    </AuthContextProvider>
+    
    
   </CartProvider>
   </WishlistProvider>
-  </AddItemStyleProvider>,
+  </AddItemStyleProvider>
+  </AuthContextProvider>,
 )

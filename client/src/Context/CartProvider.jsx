@@ -5,7 +5,8 @@ import { AuthContext } from './AuthContext';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [isAuth]=useContext(AuthContext)
+  const {isAuth}=useContext(AuthContext)
+  console.log(`${isAuth} from CartContext`)
   const [cart, setCart] = useState([]);
   const [addToCartText, setAddtoCartText] = useState("");
   useEffect(() => {
