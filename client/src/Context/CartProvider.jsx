@@ -5,18 +5,28 @@ import { AuthContext } from './AuthContext';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const [isAuth]=useContext(AuthContext)
   const [cart, setCart] = useState([]);
   const [addToCartText, setAddtoCartText] = useState("");
   useEffect(() => {
-    const storedCartItems = localStorage.getItem('cart');
-    if (storedCartItems) {
-      setCart(JSON.parse(storedCartItems));
+    if (isAuth) {
+      const storedCartItems = localStorage.getItem('cart');
+      if (storedCartItems) {
+        setCart(JSON.parse(storedCartItems));
+      }
+    } else {
+      setCart([]); 
     }
-  }, []);
+  }, [isAuth]);
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+    if (isAuth) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      localStorage.removeItem('cart'); 
+    }
+  }, [cart, isAuth]);
+
 
   const addToCart = (newItem) => {
     setCart(prevCart => {

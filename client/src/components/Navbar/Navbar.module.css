@@ -80,6 +80,10 @@
 .menuItems li a:hover {
   color: grey;
 }
+.logout_container{
+  color:rgb(130, 65, 65);
+  font-weight: 700;
+}
 
 /* responsive */
 @media screen and (max-width: 1199px) {
